@@ -1,0 +1,144 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GreenChain AI | Sustainability Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<header>
+    <h1>🌱 GreenChain AI</h1>
+    <p>AI-Powered Blockchain Sustainability Monitor</p>
+    <nav>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#calculator">Calculator</a>
+        <a href="#simulator">Simulator</a>
+        <a href="#comparison">Comparison</a>
+        <a href="#forecast">Forecast</a>
+        <a href="#anomaly">Anomaly Detection</a>
+        <a href="#recommendations">Recommendations</a>
+    </nav>
+</header>
+
+<main>
+    <section id="dashboard" class="section">
+        <h2>🌍 Sustainability Dashboard</h2>
+        <div class="cards">
+            <article class="card">
+                <h3>Energy Consumption</h3>
+                <p id="dashboardEnergy">1,000 kWh</p>
+            </article>
+            <article class="card">
+                <h3>Carbon Emissions</h3>
+                <p id="dashboardEmissions">400 kg CO₂</p>
+            </article>
+            <article class="card">
+                <h3>Potential CO₂ Savings</h3>
+                <p id="dashboardSavings">40 kg CO₂</p>
+            </article>
+            <article class="card">
+                <h3>Green Score</h3>
+                <p id="greenScore">65 / 100</p>
+                <small id="greenScoreLabel">Demo estimate</small>
+            </article>
+        </div>
+        <button id="downloadReportBtn" type="button">Download Sustainability Report</button>
+    </section>
+
+    <section id="calculator" class="section">
+        <h2>🧮 Carbon Emissions Calculator</h2>
+        <label for="energy">Energy Consumption (kWh)</label>
+        <input type="number" id="energy" value="1000" min="0" step="any">
+
+        <label for="intensity">Carbon Intensity (g CO₂/kWh)</label>
+        <input type="number" id="intensity" value="400" min="0" step="any">
+
+        <button id="calculateBtn" type="button">Calculate Emissions</button>
+        <p id="emissionsResult" aria-live="polite"></p>
+    </section>
+
+    <section id="simulator" class="section">
+        <h2>♻️ Green Impact Simulator</h2>
+
+        <label for="baseEnergy">Energy Consumption (kWh)</label>
+        <input type="number" id="baseEnergy" value="1000" min="0" step="any">
+
+        <label for="baseIntensity">Carbon Intensity (g CO₂/kWh)</label>
+        <input type="number" id="baseIntensity" value="400" min="0" step="any">
+
+        <label for="reductionSlider">
+            Energy Reduction: <span id="reductionLabel">20%</span>
+        </label>
+        <input type="range" id="reductionSlider" min="0" max="100" value="20" step="5">
+
+        <button id="simulateBtn" type="button">Simulate Green Impact</button>
+
+        <div class="cards">
+            <article class="card"><h3>Current Emissions</h3><p id="currentEmissions">400 kg</p></article>
+            <article class="card"><h3>New Emissions</h3><p id="newEmissions">320 kg</p></article>
+            <article class="card"><h3>Potential Savings</h3><p id="savedEmissions">80 kg</p></article>
+        </div>
+        <p id="impactMessage" aria-live="polite"></p>
+    </section>
+
+    <section id="comparison" class="section">
+        <h2>⛓️ Blockchain Energy Comparison</h2>
+        <p>Illustrative annual energy estimates. Values are not live measurements.</p>
+        <canvas id="ethereumEnergyChart"></canvas>
+        <p>Ethereum transitioned from Proof of Work to Proof of Stake in September 2022, substantially reducing its energy consumption.</p>
+        <p>
+            Sources:
+            <a href="https://ethereum.org/en/energy-consumption/" target="_blank" rel="noopener noreferrer">Ethereum.org</a> |
+            <a href="https://ccaf.io/cbnsi/cbeci" target="_blank" rel="noopener noreferrer">Cambridge Bitcoin Electricity Consumption Index</a>
+        </p>
+    </section>
+
+    <section id="forecast" class="section">
+        <h2>📈 Energy Consumption Forecast</h2>
+        <label for="forecastDays">Forecast Period (1–30 days)</label>
+        <input type="number" id="forecastDays" value="7" min="1" max="30">
+        <button id="forecastBtn" type="button">Generate Forecast</button>
+        <p id="forecastResult" aria-live="polite"></p>
+        <canvas id="forecastChart"></canvas>
+    </section>
+
+    <section id="anomaly" class="section">
+        <h2>🔍 Energy Anomaly Detection</h2>
+        <label for="readings">Energy readings separated by commas</label>
+        <textarea id="readings" rows="3">100, 105, 98, 110, 500, 102</textarea>
+        <button id="detectBtn" type="button">Detect Anomalies</button>
+        <div id="anomalyResults" aria-live="polite"></div>
+        <p id="anomalyNotice"></p>
+    </section>
+
+    <section id="recommendations" class="section">
+        <h2>💡 Sustainability Recommendations</h2>
+        <label for="recommendEnergy">Energy Consumption (kWh)</label>
+        <input type="number" id="recommendEnergy" value="1000" min="0" step="any">
+
+        <label for="recommendIntensity">Carbon Intensity (g CO₂/kWh)</label>
+        <input type="number" id="recommendIntensity" value="400" min="0" step="any">
+
+        <button id="recommendBtn" type="button">Generate Recommendations</button>
+        <div id="recommendationResults" aria-live="polite"></div>
+    </section>
+
+    <section class="section">
+        <h2>📘 Methodology</h2>
+        <p>Estimated emissions = energy consumption × carbon intensity ÷ 1,000.</p>
+        <p>Dashboard potential savings are an illustrative 10% estimate. Simulator savings use your selected reduction percentage.</p>
+        <p>Forecasts, anomaly detection, and scores are prototype outputs based on sample data and should not be treated as official environmental measurements.</p>
+    </section>
+</main>
+
+<footer>
+    <p>GreenChain AI — AI for Sustainability</p>
+    <p>Hackathon prototype | Estimates for demonstration purposes</p>
+</footer>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,190 @@
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f0f7f1;
+    color: #20352a;
+    line-height: 1.6;
+}
+
+header {
+    background: linear-gradient(135deg, #123d2a, #258451);
+    color: white;
+    text-align: center;
+    padding: 30px 18px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.4rem;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+}
+
+nav a:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+main {
+    width: min(1100px, 94%);
+    margin: 25px auto;
+}
+
+.section {
+    background: white;
+    margin-bottom: 25px;
+    padding: 25px;
+    border-radius: 14px;
+    box-shadow: 0 4px 16px rgba(20, 65, 40, 0.08);
+    scroll-margin-top: 15px;
+}
+
+h2 {
+    color: #17643c;
+    margin-top: 0;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 16px;
+    margin: 20px 0;
+}
+
+.card {
+    padding: 18px;
+    border-radius: 12px;
+    background: #e9f6ec;
+    border-left: 5px solid #269653;
+    overflow-wrap: anywhere;
+}
+
+.card h3 {
+    margin-top: 0;
+    font-size: 1rem;
+}
+
+.card p {
+    color: #17643c;
+    font-weight: bold;
+    font-size: 1.3rem;
+    margin-bottom: 5px;
+}
+
+label {
+    display: block;
+    margin-top: 14px;
+    font-weight: bold;
+}
+
+input,
+textarea {
+    display: block;
+    width: 100%;
+    margin: 6px 0 14px;
+    padding: 12px;
+    border: 1px solid #b9cbbd;
+    border-radius: 8px;
+    font: inherit;
+    background: #fff;
+    color: #20352a;
+}
+
+input:focus,
+textarea:focus {
+    outline: 2px solid #299b58;
+    border-color: transparent;
+}
+
+input[type="range"] {
+    padding: 0;
+    accent-color: #258451;
+}
+
+button {
+    background: #207d47;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 18px;
+    margin: 8px 0;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #145b32;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+canvas {
+    width: 100%;
+    max-height: 380px;
+}
+
+#emissionsResult,
+#impactMessage,
+#forecastResult,
+#anomalyNotice {
+    font-weight: bold;
+    overflow-wrap: anywhere;
+}
+
+.result-item {
+    background: #e9f6ec;
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 8px;
+}
+
+footer {
+    background: #123d2a;
+    color: white;
+    text-align: center;
+    padding: 22px;
+}
+
+@media (max-width: 600px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    .section {
+        padding: 18px;
+    }
+
+    nav {
+        gap: 4px;
+    }
+
+    nav a {
+        padding: 7px;
+        font-size: 0.9rem;
+    }
+}
